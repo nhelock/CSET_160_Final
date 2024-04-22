@@ -1,8 +1,8 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect
 from sqlalchemy import Column, Integer, String, Numeric, create_engine, text
 
 app = Flask(__name__)
-conn_str = "mysql://root:FunnyPassword321@localhost/bankdb"
+conn_str = "mysql://root:FunnyPassword321@localhost/160_final"
 engine = create_engine(conn_str, echo=True)
 conn = engine.connect()
 
@@ -10,6 +10,12 @@ conn = engine.connect()
 @app.route('/')
 def index():
     return render_template('login.html')
+def login():
+    return render_template('login.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
 
 
 if __name__ == '__main__':
