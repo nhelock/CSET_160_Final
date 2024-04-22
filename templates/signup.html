@@ -17,14 +17,24 @@
             </style>
             <div class="login-block">
                 <div class="container">
-                    <img src="../static/images/ts-logo.jpg">
                     <form id="login-form" action="#" method="post">
                         <h2>Sign Up</h2>
+                        <label for="first name">First Name:</label>
+                        <input type="text" id="first name" required>
+
+                        <label for="last name">Last Name:</label>
+                        <input type="text" id="last name" required>
+
                         <label for="username">Username:</label>
                         <input type="text" id="username" required>
     
                         <label for="password">Password:</label>
                         <input type="password" id="password" required>
+
+                        <select name="user type" id="user type">
+                            <option value="teacher">Teacher</option>
+                            <option value="student">Student</option>
+                        </select>
 
                         <button type="submit" onclick="window.location.href='login.html'">Sign Up</button>
                     </form>
