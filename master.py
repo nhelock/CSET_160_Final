@@ -8,8 +8,6 @@ conn = engine.connect()
 
 
 @app.route('/')
-def index():
-    return render_template('login.html')
 def login():
     return render_template('login.html')
 
