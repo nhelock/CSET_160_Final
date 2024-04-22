@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="../static/styles/login-styles.css">
+    </head>
+    <body>
+        <header>
+            <style>
+                header {
+                    background-image: url("../static/images/background.jpg");
+                    background-size: contain;
+                    background-position: -130% 0%;
+                    height: 100vh;
+                    background-attachment: fixed;
+                }
+            </style>
+            <div class="login-block">
+                <div class="container">
+                    <img src="../static/images/ts-logo.jpg">
+                    <form id="login-form" action="#" method="post">
+                        <h2>Sign Up</h2>
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" required>
+    
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" required>
+
+                        <button type="submit" onclick="window.location.href='login.html'">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>
