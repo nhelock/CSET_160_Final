@@ -23,6 +23,11 @@ def accounts():
     users = conn.execute(text(f"SELECT * FROM users")).all()
     return render_template('accounts.html', users=users)
 
+@app.route('/tests')
+def testslist():
+    tests = conn.execute(text(f"SELECT * FROM tests")).all()
+    return render_template('testslist.html', tests=tests)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

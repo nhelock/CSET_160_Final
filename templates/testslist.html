@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel= "stylesheet" type= "text/css" href= "../static/styles/header.css">
+    <title>Home</title>
+    <style>
+      .account-box {
+        background-color: #7da9f0;
+        padding-right: 20px;
+        border-radius: 5px;
+    }
+      .account {
+        min-width: 200px;
+        padding: 10px;
+    }
+    .flex-box {
+        display: flex;
+        font-size: 16px;
+        flex-wrap: wrap;
+        width: 1140px;
+        margin: auto;
+    }
+.column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding-top: 20px;
+        align-items: center;
+        background-color: #f0d1b6;
+    }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="topBar">
+        <div class="">
+          <img src="../static/images/ts-logo.jpg" alt="Logo" class="logo">
+          <ul class="barItem">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/boats">TESTS</a></li>
+            <li><a href="/create">ACCOUNTS</a></li>
+          </ul>
+        </div>
+        <div class="formSection barItem">
+          <h3>Hello, {{ name }}!</h3>
+        </div>
+      </div>
+      <div class="formSection barItem">
+          <div class="flex-box">
+            {% for test in tests %}
+              <div class="account">
+                  <ul>
+                      <li>TestID: {{ test['TestID'] }} </li>
+                      <li>TeacherID: {{ test['UserID'] }} </li>
+                  </ul>
+              </div>
+            
+            {% endfor %}
+
+            {% if tests | length < 1 %}
+                <h1>No data available</h1>
+            {% endif %}
+          </div>
+        </div>
+    </header>
+  </body>
+</html>
