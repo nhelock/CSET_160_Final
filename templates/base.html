@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel= "stylesheet" type= "text/css" href= "../static/styles/header.css">
+    <title>Home</title>
+    <style>
+      header {
+        background-image: url("../static/images/background.jpg");
+        background-size: cover;
+        height: 100vh;
+        background-attachment: fixed;
+      }
+      
+      .welcome-page {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 50px; /* Add padding for better readability */
+            border-radius: 10px; /* Add rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow effect */
+            position: absolute; /* Position it absolutely within the header */
+            top: 50%; /* Align it vertically at the center */
+            left: 50%; /* Align it horizontally at the center */
+            transform: translate(-50%, -50%); /* Center it precisely */
+            text-align: center; /* Center the text */
+            color: #333; /* Text color */
+            max-width: 80%; /* Set maximum width */
+        }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="topBar">
+        <div class="">
+          <img src="../static/images/ts-logo.jpg" alt="Logo" class="logo">
+          <ul class="barItem">
+            <li><a href="http://127.0.0.1:5000/">HOME</a></li>
+            <li><a href="/tests">TESTS</a></li>
+            <li><a href="/create_test">CREATE TEST</a></li>
+            <li><a href="/delete">DELETE TEST</a></li>
+            <li><a href="/edit_test/1">EDIT TEST</a></li>
+
+          </ul>
+        </div>
+
+        <div class="formSection barItem">
+          <h3>Hello, {{ name }}!</h3>
+        </div>
+
+      </div>
+      <div class="welcome-page">
+        <h1>Welcome!</h1>
+        <h2>Thank you for chosing Thaddeus Stevens</h2>
+      </div>
+    </header>
+  </body>
+</html>

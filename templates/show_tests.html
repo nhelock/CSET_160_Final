@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .test-block {
+      padding: 20px;
+      margin: 0 30%;
+    }
+
+    .test-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .test-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .test-points {
+      margin-right: 10px;
+    }
+
+    .test-button {
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
+
+    .test-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .test-block h2 {
+          text-align: center;
+    }
+
+  </style>
+
+</head>
+<body>
+    <header>
+      <div class="topBar">
+        <div class="">
+          <img src="../static/images/ts-logo.jpg" alt="Logo" class="logo">
+          <ul class="barItem">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/boats">TESTS</a></li>
+            <li><a href="/create">ACCOUNT</a></li
+          </ul>
+        </div>
+
+        <div class="formSection barItem">
+          <form class="barItem" action="" method="post">
+            <input type="text" name="uid" value="" placeholder="E-mail" required>
+            <input type="password" name="pass" value="" placeholder="Password" required>
+            <input type="submit" name="loginButton" value="LOGIN">
+          </form>
+
+          <button class="barItem input" style="margin-left:10px;">
+            <a href="#">SIGNUP</a>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="test-block">
+        <h2>Available Tests</h2>
+        <ul class="test-list">
+        <li class="test-item">
+            <span class="test-points">100 points</span>
+            <a href="#" class="test-button">Start Test</a>
+        </li>
+        <li class="test-item">
+            <span class="test-points">80 points</span>
+            <a href="#" class="test-button">Start Test</a>
+        </li>
+        <li class="test-item">
+            <span class="test-points">120 points</span>
+            <a href="#" class="test-button">Start Test</a>
+        </li>
+        </ul>
+    </div>
+  </div>
+</body>
+</html>
