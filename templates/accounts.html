@@ -5,19 +5,31 @@
     <link rel= "stylesheet" type= "text/css" href= "../static/styles/header.css">
     <title>Home</title>
     <style>
-      .welcome-page {
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-            padding: 50px; /* Add padding for better readability */
-            border-radius: 10px; /* Add rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow effect */
-            position: absolute; /* Position it absolutely within the header */
-            top: 50%; /* Align it vertically at the center */
-            left: 50%; /* Align it horizontally at the center */
-            transform: translate(-50%, -50%); /* Center it precisely */
-            text-align: center; /* Center the text */
-            color: #333; /* Text color */
-            max-width: 80%; /* Set maximum width */
-        }
+      .account-box {
+        background-color: #7da9f0;
+        padding-right: 20px;
+        border-radius: 5px;
+    }
+      .account {
+        min-width: 200px;
+        padding: 10px;
+    }
+    .flex-box {
+        display: flex;
+        font-size: 16px;
+        flex-wrap: wrap;
+        width: 1140px;
+        margin: auto;
+    }
+.column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding-top: 20px;
+        align-items: center;
+        background-color: #f0d1b6;
+    }
     </style>
   </head>
 
@@ -29,47 +41,35 @@
           <ul class="barItem">
             <li><a href="/">HOME</a></li>
             <li><a href="/boats">TESTS</a></li>
-            <li><a href="/create">ACCOUNTS</a></li
+            <li><a href="/create">ACCOUNTS</a></li>
           </ul>
         </div>
-
         <div class="formSection barItem">
+          <h3>Hello, {{ name }}!</h3>
+        </div>
+      </div>
+      <div class="formSection barItem">
           <div class="flex-box">
-            {% for boat in boats %}
-            <a href="/boat-update/{{ boat['id'] }}" class="boat-link">
-                <div class="boat">
-                    <ul>
-                        <li>Boat id: {{ boat['id'] }}</li>
-                        <ul class="account-box">
-                            <li>Name: {{ boat['FirstName'] }}</li>
-                            <li>Type: {{ boat['LastName'] }}</li>
-                            <li>Owner ID: {{ boat['Username'] }}</li>
-                            <li>Price: {{ boat['UserType'] }}</li>
-                        </ul>
-                    </ul>
-                </div>
+            {% for user in users %}
+              <div class="account">
+                  <ul>
+                      <li>Account ID: {{ user['UserID'] }}</li>
+                      <ul class="account-box">
+                          <li>First Name: {{ user['FirstName'] }}</li>
+                          <li>Last Name: {{ user['LastName'] }}</li>
+                          <li>Username: {{ user['Username'] }}</li>
+                          <li>User Type: {{ user['UserType'] }}</li>
+                      </ul>
+                  </ul>
+              </div>
+            
             {% endfor %}
 
-            {% if boats | length < 1 %}
+            {% if users | length < 1 %}
                 <h1>No data available</h1>
             {% endif %}
+          </div>
         </div>
-
-        <div class="pagination_bar">
-            <a href= "{{ "/boats/"+ (page - 1) | string }}" class="pagination_button"> < </a>
-            <a class="pagination_button" style="background-color: black"> {{page}} </a>
-            <a href="{{ "/boats/"+ (page + 1) | string }}" class="pagination_button" > {{ page + 1 }} </a>
-            <a href="{{ "/boats/"+ (page + 2) | string }}" class="pagination_button"> {{ page + 2 }} </a>
-            <a href="{{ "/boats/"+ (page + 1) | string }}" class="pagination_button"> > </a>
-
-        </div>
-        </div>
-
-      </div>
-      <div class="welcome-page">
-        <h1>Welcome!</h1>
-        <h2>Thank you for chosing Thaddeus Stevens</h2>
-      </div>
-    </header?
+    </header>
   </body>
 </html>
