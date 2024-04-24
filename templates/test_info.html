@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Information</title>
+</head>
+<body>
+    <h1>Test Information</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Test Name</th>
+                <th>Created By</th>
+                <th>Number of Students</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for test in tests %}
+            {% for user in users %}
+            <tr>
+                <td>{{ test['TestID'] }}</td>
+                <td>{{ user['FirstName'] }} {{ users['LastName'] }}</td>
+                <td>{{ user['Student'] }}</td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

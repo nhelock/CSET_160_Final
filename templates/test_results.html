@@ -43,6 +43,44 @@
     .test-block h2 {
           text-align: center;
     }
+
+    ul {
+    list-style-type: none;
+    padding: 0;
+    }
+
+    .result-item {
+        margin-bottom: 20px;
+        margin-left: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: #f9f9f9;
+    }
+
+    .result-item a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    }
+
+    .result-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .account-box {
+        padding-left: 20px;
+        list-style-type: none;
+    }
+
+    .account-box li {
+        margin-bottom: 5px;
+    }
+
+    .h2 {
+        text-align: center;
+    }
   </style>
   </head>
   <body>
@@ -53,7 +91,7 @@
           <ul class="barItem">
             <li><a href="/">HOME</a></li>
             <li><a href="/boats">TESTS</a></li>
-            <li><a href="/create">ACCOUNT</a></li
+            <li><a href="/create">ACCOUNT</a></li>
           </ul>
         </div>
         <div class="formSection barItem">
@@ -66,6 +104,23 @@
             <a href="#">SIGNUP</a>
           </button>
         </div>
+      </div>
+      <div class="account">
+        <h2 class="h2">Test Results</h2>
+          <ul>
+              {% for g in grade %}
+              <li class="result-item">
+                  <a href="test_details">
+                      <p class="result-title">Results UserID: {{ g['UserID'] }}</p>
+                      <ul class="account-box">
+                          <li>User ID: {{ g['UserID'] }}</li>
+                          <li>Test ID: {{ g['TestID'] }}</li>
+                          <li>Grade: {{ g['Grade'] }}</li>
+                      </ul>
+                  </a>
+              </li>
+              {% endfor %}
+          </ul>
       </div>
     </header>
   </body>

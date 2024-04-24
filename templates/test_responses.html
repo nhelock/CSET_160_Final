@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Responses</title>
+</head>
+<body>
+    <h1>Select Teacher</h1>
+    <form action="/test_responses" method="post">
+        <label for="teacher">Select Teacher:</label>
+        <select name="teacher" id="teacher">
+            {% for user in users %}
+                <option value="{{ UserType['Teacher'] }}">{{ UserType['Teacher'] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="total_marks">Total Marks:</label>
+        <input type="number" name="total_marks" id="total_marks" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
