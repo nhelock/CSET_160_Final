@@ -20,14 +20,17 @@
                     <img src="../static/images/ts-logo.jpg">
                     <form id="login-form" action="#" method="post">
                         <label for="username">Username:</label>
-                        <input type="text" id="username" required>
+                        <input type="text" name="username" placeholder="Username" id="username" required>
     
                         <label for="password">Password:</label>
-                        <input type="password" id="password" required>
+                        <input type="password" name="password" placeholder="Password" id="password" required>
 
                         <button type="submit">Log In</button>
-                        <button type="submit" onclick="window.location.href='signup.html'">Sign Up</button>
+                        
                     </form>
+                    <button type="submit" class = 'btnmargin'>
+                        <a class="btntext" href="/signup" >Sign  Up</a>
+                    </button>
                 </div>
             </div>
         </header>

@@ -50,22 +50,17 @@
       </div>
       <div class="formSection barItem">
           <div class="flex-box">
-            {% for user in users %}
+            {% for test in tests %}
               <div class="account">
                   <ul>
-                      <li>Account ID: {{ user['UserID'] }}</li>
-                      <ul class="account-box">
-                          <li>First Name: {{ user['FirstName'] }}</li>
-                          <li>Last Name: {{ user['LastName'] }}</li>
-                          <li>Username: {{ user['Username'] }}</li>
-                          <li>User Type: {{ user['UserType'] }}</li>
-                      </ul>
+                      <li>TestID: {{ test['TestID'] }} </li>
+                      <li>TeacherID: {{ test['UserID'] }} </li>
                   </ul>
               </div>
             
             {% endfor %}
 
-            {% if users | length < 1 %}
+            {% if tests | length < 1 %}
                 <h1>No data available</h1>
             {% endif %}
           </div>
