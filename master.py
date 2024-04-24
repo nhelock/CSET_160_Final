@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from sqlalchemy import Column, Integer, String, Numeric, create_engine, text
 
 app = Flask(__name__)
-conn_str = "mysql://root:FunnyPassword321@localhost/bankdb"
+conn_str = "mysql://root:FunnyPassword321@localhost/160_final"
 engine = create_engine(conn_str, echo=True)
 conn = engine.connect()
 
