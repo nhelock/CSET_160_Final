@@ -5,12 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Details</title>
 </head>
+<style>
+    body {
+    background-color: #8b1e42;
+    }
+    .h1 {
+    color: white;
+    padding-left: 45%;
+    font-size: 40px;
+    }
+    .thead {
+    color: white;
+    padding-left: 35%;
+    padding-top: 12%;
+    text-indent: 50px;
+    font-size: 20px;
+    }
+    .submit {
+    padding-top: 8%;
+    padding-left: 50%;
+    }
+</style>
 <body>
-    <h1>Test Details</h1>
-    <table>
+    <h1 class="h1">Test Details</h1>
+    <table class="thead">
         <thead>
             <tr>
                 <th>Student Name</th>
+                <th>Achieved Marks</th>
                 <th>Teacher Name</th>
             </tr>
         </thead>
@@ -18,10 +40,14 @@
             {% for u in users %}
             <tr>
                 <td>{{ u['FirstName'] }} {{ u['LastName'] }}</td>
-                <td>{{ u['UserType'] }}</td>
+                <td>{{ u['UserID'] }}</td>
+                <td>{{ u['FirstName'] }} {{ u['LastName'] }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+        <div class="submit">
+        <a href="/test_responses"><input type="submit" value="Student Marking"></a>
+        </div>
 </body>
 </html>

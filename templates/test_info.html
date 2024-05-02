@@ -16,14 +16,17 @@
             </tr>
         </thead>
         <tbody>
-            {% for test in tests %}
-            {% for user in users %}
+            {% for t in tests %}
             <tr>
-                <td>{{ test['TestID'] }}</td>
-                <td>{{ user['FirstName'] }} {{ users['LastName'] }}</td>
-                <td>{{ user['Student'] }}</td>
+                <td>{{ t['TestID'] }}</td>
             </tr>
             {% endfor %}
+
+            {% for u in users %}
+            <tr>
+                <td>{{ u['FirstName'] }} {{ u['LastName'] }}</td>
+                <td>{{ u['UserType'] }}</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>

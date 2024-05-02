@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Details</title>
+</head>
+<body>
+    <h1>Tests</h1>
+    <table>
+        <form action="/test_list" method="post">
+            <label for="student">Select Student:</label>
+            <select name="student" id="student">
+                {% for u in students %}
+                    <option>{{ u['Name'] }}</option>
+                {% endfor %}
+            </select>
+        </form>
+    </table>
+</body>
+</html>

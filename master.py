@@ -7,7 +7,6 @@ engine = create_engine(conn_str, echo=True)
 conn = engine.connect()
 
 
-
 @app.route('/')
 def base():
     return render_template('login.html')
@@ -16,6 +15,7 @@ def base():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
 
 @app.route('/login', methods = [ "POST" ])
 def login_route():
@@ -42,26 +42,41 @@ def test_results():
     result = conn.execute(text("SELECT UserID, TestID, Grade FROM Grade")).fetchall()
     return render_template('test_results.html', grade=result)
 
-@app.route('/test_responses', methods=['GET', 'POST'])
+
+@app.route('/test_responses')
 def test_responses():
-    if request.method == 'POST':
-        usertype = request.form.get('Teacher')
-        total_marks = request.form.get('total_marks')
-    else:
-        teachers = conn.execute(text("SELECT * FROM users")).fetchall()
-        return render_template('test_responses.html', teachers=teachers)
+    students = conn.execute(text("SELECT CONCAT(FirstName, ' ', LastName) AS Name FROM users WHERE UserType = 'Student'")).fetchall()
+    return render_template('test_responses.html', students=students)
+
+
+@app.route('/test_responses', methods = [ "POST" ])
+def test_responses_submit_route():
+    result = conn.execute(text("SELECT UserID, TestID, Grade FROM Grade")).fetchall()
+    return render_template('test_results.html', grade=result)
 
 
 @app.route('/test_info')
 def test_info():
-    test_info = conn.execute(text("SELECT FirstName, LastName, UserType FROM users")).fetchall()
-    return render_template('test_info.html', users=test_info)
+    info = conn.execute(text("SELECT FirstName, LastName, UserType FROM users")).fetchall()
+    return render_template('test_info.html', users=info)
 
 
 @app.route('/test_details')
 def test_details():
-    test_details = conn.execute(text("SELECT FirstName, LastName, UserType FROM users")).fetchall()
-    return render_template('test_details.html', users=test_details)
+    details = conn.execute(text("SELECT FirstName, LastName, UserID, UserType FROM users where UserType = 'Student'")).fetchall()
+    return render_template('test_details.html', users=details)
+
+
+@app.route('/test_details', methods = [ "POST" ])
+def test_details_student_route():
+    students = conn.execute(text("SELECT CONCAT(FirstName, ' ', LastName) AS Name FROM users WHERE UserType = 'Student'")).fetchall()
+    return render_template('test_responses.html', students=students)
+
+
+@app.route('/test_list')
+def test_list():
+    students = conn.execute(text("SELECT CONCAT(FirstName, ' ', LastName) AS Name FROM users WHERE UserType = 'Student'")).fetchall()
+    return render_template('test_list.html', students=students)
 
 
 if __name__ == '__main__':

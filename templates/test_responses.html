@@ -5,20 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Responses</title>
 </head>
+<style>
+body {
+    background-color: #8b1e42;
+    color: white;
+    padding-top: 20%;
+    padding-left: 42%;
+    }
+.marks {
+    padding-top: 1%;
+    }
+.submit {
+    padding-top: 2%;
+    padding-left: 14%;
+    }
+</style>
 <body>
-    <h1>Select Teacher</h1>
-    <form action="/test_responses" method="post">
-        <label for="teacher">Select Teacher:</label>
-        <select name="teacher" id="teacher">
-            {% for user in users %}
-                <option value="{{ UserType['Teacher'] }}">{{ UserType['Teacher'] }}</option>
-            {% endfor %}
-        </select>
-        <br>
-        <label for="total_marks">Total Marks:</label>
-        <input type="number" name="total_marks" id="total_marks" required>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
+    <h1 class="h1">Student Marking</h1>
+        <form action="/test_responses" method="post">
+            <label for="student">Select Student:</label>
+            <select name="student" id="student">
+                {% for u in students %}
+                    <option>{{ u['Name'] }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <div class="marks">
+            <label for="total_marks">Total Marks:</label>
+            <input type="number" name="total_marks" id="total_marks" required>
+            <br>
+            <div class="submit">
+            <a href="/test_results"><input type="submit" value="Submit"></a>
+            </div>
+            </div>
+        </form>
 </body>
 </html>
+
+
