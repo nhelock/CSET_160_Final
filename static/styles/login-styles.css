@@ -30,7 +30,7 @@ header {
 }
 .container {
     max-width: 350px;
-    height: 500px;
+    height: fit-content;
     margin: 20px auto;
     background-color: #fff;
     padding: 20px;
