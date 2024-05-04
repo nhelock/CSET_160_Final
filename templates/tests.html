@@ -1,4 +1,37 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+  <div class="test-list">
+    <h1>All Tests</h1>
+    <!-- Display all test data -->
+    <table>
+      <tr>
+        <th>Test ID</th>
+        <th>User Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      
+          {% for test in tests %}
+          <tr>
+            <td>{{ test.TestID }}</td>
+            <td>{{ test.FirstName }} {{ test.LastName }}</td>
+            <td><a href="/edit_test/{{ test.TestID }}"><button>Edit</button></a></td>
+            <td><a href="/delete_test/{{ test.TestID }}"><button>Delete</button></a></td>
+          </tr>
+        {% endfor %}
+    </table>
+    
+    <!-- Option to create a new test -->
+    <h2>Create New Test</h2>
+    <form action="/create_test" method="post">
+      <button type="submit">Create Test</button>
+    </form>
+  </div>
+</div>
+
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -91,4 +124,7 @@
     </div>
   </div>
   </body>
-</html>
+</html> -->
+
+
+{% endblock %}

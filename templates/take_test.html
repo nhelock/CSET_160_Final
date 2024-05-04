@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+  <div class="test-list">
+    <div class="test">
+      <h1>Please Answer All Questions Thoroughly</h1>
+      <form action="/take_test/{{ test_id }}" method="post">
+        {% for question in questions %}
+          <div class="question">
+            <input type="hidden" name="question_id_{{ question.QuestionID }}" value="{{ question.QuestionID }}">
+            <p>Question: {{ question.Question }}</p>
+            <input type="text" name="answer_{{ question.QuestionID }}">
+          </div>
+        {% endfor %}
+        <button type="submit">Submit Answers</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

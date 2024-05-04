@@ -193,5 +193,95 @@ def register():
     return render_template('signup.html', msg=msg)
 
 
+@app.route('/test_results')
+def test_results():
+    # Check if user is logged in
+    if 'loggedin' in session:
+        # User is logged in, fetch test results from database
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('''
+            SELECT Tests.TestID, users.FirstName, users.LastName 
+            FROM Tests 
+            JOIN users ON Tests.UserID = users.UserID
+        ''')
+        tests = cursor.fetchall()
+        return render_template('test_results.html', tests=tests)
+    else:
+        # User is not logged in, redirect to login page
+        return redirect(url_for('login'))
+    
+
+@app.route('/take_test/<test_id>')
+def take_test(test_id):
+    
+    if session['UserType'] == 'Student':
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM questions WHERE TestID = %s', (test_id,))
+        questions = cursor.fetchall()
+
+        return render_template('take_test.html', test_id=test_id, questions=questions)
+    else:
+        return redirect('/test_results')
+
+
+@app.route('/take_test/<test_id>', methods=['POST'])
+def submit_answers(test_id):
+    if 'loggedin' not in session:
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        try:
+            # Get the UserID from the session
+            user_id = session['id']
+            # Get the form data containing answers
+            answers = {key.split('_')[1]: value for key, value in request.form.items() if key.startswith('answer_')}
+            # Insert answers into the responses table
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            for question_id, answer in answers.items():
+                cursor.execute("INSERT INTO responses (QuestionID, UserID, Answer) VALUES (%s, %s, %s)", (question_id, user_id, answer))
+            mysql.connection.commit()
+            return redirect(url_for('test_results'))
+        except Exception as e:
+            return str(e)
+    else:
+        return "Method not allowed"
+
+
+
+@app.route('/accounts')
+def accounts():
+    try:
+        # Establish database connection
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        
+        # Fetch all user accounts from the database
+        cursor.execute("SELECT UserID, FirstName, LastName, UserType FROM users ORDER BY UserType")
+        users = cursor.fetchall()
+        
+        # Close database connection
+        cursor.close()
+        
+        # Render the accounts.html template with the user data
+        return render_template('accounts.html', users=users)
+    except Exception as e:
+        return str(e)
+    
+
+@app.route('/tests')
+def show_tests():
+    
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute('''
+        SELECT Tests.TestID, Tests.UserID, users.FirstName, users.LastName 
+        FROM Tests 
+        JOIN users ON Tests.UserID = users.UserID
+    ''')
+    tests = cursor.fetchall()
+    return render_template('tests.html', tests=tests)
+
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

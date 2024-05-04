@@ -21,6 +21,27 @@ header li {
   padding: 10px;
 }
 
+
+.topBar .barItem li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.topBar .barItem li a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: rgb(31, 31, 31);
+  background-color: #f0dddd;
+  border-radius: 5px;
+}
+
+.topBar .barItem li a:hover {
+  background-color: #5e6266;
+  color:white;
+}
+
+
 .formSection {
   padding: 10px;
   right: 0;
@@ -194,4 +215,82 @@ body {
   .footer__nav {
     flex: 2 0px;
   }
+}
+
+.test-list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.test {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.test h1 {
+  text-align: center;
+}
+
+.question {
+  margin-bottom: 10px;
+}
+
+.question p {
+  margin-bottom: 5px;
+  display: inline-block; /* Ensures text and input appear on the same line */
+}
+
+.question input[type="text"] {
+  width: calc(100% - 20px); /* Adjust width to account for padding */
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  vertical-align: top; /* Align input with the top of the text */
+}
+
+
+
+.test-list h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.test-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.test-list th, .test-list td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.test-list th {
+  background-color: #f2f2f2;
+}
+
+.test-list tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.test-list tbody tr:hover {
+  background-color: #a2cedd;
+}
+
+
+.table-container {
+  max-height: 400px; /* Set maximum height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
