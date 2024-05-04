@@ -1,21 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Details</title>
-</head>
-<body>
-    <h1>Tests</h1>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+  <div class="test-list">
+    <h1>All Tests</h1>
     <table>
-        <form action="/test_list" method="post">
-            <label for="student">Select Student:</label>
-            <select name="student" id="student">
-                {% for u in students %}
-                    <option>{{ u['Name'] }}</option>
-                {% endfor %}
-            </select>
-        </form>
+      <thead>
+        <tr>
+          <th>Test ID</th>
+          <th>Professor</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for test in tests %}
+          <tr>
+            <td>{{ test.TestID }}</td>
+            <td>{{ test.FirstName }} {{ test.LastName }}</td>
+            <td><a href="/take_test/{{ test.TestID }}"><button>Take Test</button></a></td>
+            <td><a href="/test_grades/{{ test.TestID }}"><button>Test Submissions</button></a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
     </table>
-</body>
-</html>
+  </div>
+</div>
+{% endblock %}

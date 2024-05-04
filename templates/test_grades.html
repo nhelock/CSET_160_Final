@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+    <div class="test-list">
+        <h1>Test Submissions</h1>
+        {% for student, questions in test_submissions.items() %}
+        <h2>Student ID: {{ student }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for question in questions %}
+                <tr>
+                    <td>{{ question.Question }}</td>
+                    <td>{{ question.Answer }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h2>Current Grade: {{ questions[0].Grade }}</h2>
+        <form action="/test_grades/{{ test_id }}/" method="post">
+            <input type="hidden" name="student_id" value="{{ student }}">
+            <label for="grade">Percent Grade:</label>
+            <input type="number" id="grade" name="grade" min="0" max="100" required>
+            <button type="submit">Submit Grade</button>
+        </form>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

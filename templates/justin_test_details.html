@@ -1,0 +1,149 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Details</title>
+</head>
+<style>
+    body {
+    background-color: #8b1e42;
+    }
+    .h1 {
+    color: white;
+    padding-left: 45%;
+    font-size: 40px;
+    }
+    .thead {
+    color: white;
+    padding-left: 35%;
+    padding-top: 12%;
+    text-indent: 50px;
+    font-size: 20px;
+    }
+    .submit {
+    padding-top: 8%;
+    padding-left: 50%;
+    }
+</style>
+<body>
+    <h1 class="h1">Test Details</h1>
+    <table class="thead">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Achieved Marks</th>
+                <th>Teacher Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in users %}
+            <tr>
+                <td>{{ u['FirstName'] }} {{ u['LastName'] }}</td>
+                <td>{{ u['UserID'] }}</td>
+                <td>{{ u['FirstName'] }} {{ u['LastName'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+        <div class="submit">
+        <a href="/test_responses"><input type="submit" value="Student Marking"></a>
+        </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel= "stylesheet" type= "text/css" href= "../static/styles/header.css">
+    <title>Tests</title>
+      <style>
+    .test-block {
+      padding: 20px;
+      margin: 0 30%;
+    }
+
+    .test-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .test-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .test-points {
+      margin-right: 10px;
+    }
+
+    .test-button {
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
+
+    .test-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .test-block h2 {
+          text-align: center;
+    }
+
+  </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="topBar">
+        <div class="">
+          <img src="../static/images/ts-logo.jpg" alt="Logo" class="logo">
+          <ul class="barItem">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/boats">TESTS</a></li>
+            <li><a href="/create">ACCOUNT</a></li>
+          </ul>
+        </div>
+
+        <div class="formSection barItem">
+          <form class="barItem" action="" method="post">
+            <input type="text" name="uid" value="" placeholder="E-mail" required>
+            <input type="password" name="pass" value="" placeholder="Password" required>
+            <input type="submit" name="loginButton" value="LOGIN">
+          </form>
+
+          <button class="barItem input" style="margin-left:10px;">
+            <a href="#">SIGNUP</a>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="test-block">
+        <h2>Available Tests</h2>
+        <ul class="test-list">
+        <li class="test-item">
+            <span class="test-points">100 points</span>
+            <a href="#" class="test-button">Start Test</a>
+        </li>
+        <li class="test-item">
+            <span class="test-points">80 points</span>
+            <a href="#" class="test-button">Start Test</a>
+        </li>
+        <li class="test-item">
+            <span class="test-points">120 points</span>
+            <a href="#" class="test-button">Start Test</a>
+        </li>
+        </ul>
+    </div>
+  </div>
+  </body>
+</html>

@@ -226,6 +226,9 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  height: 70vh;
+  width: 70%;
+  overflow: auto;
 }
 
 .test {
@@ -245,15 +248,15 @@ body {
 
 .question p {
   margin-bottom: 5px;
-  display: inline-block; /* Ensures text and input appear on the same line */
+  display: inline-block; /* Makes text and input appear on the same line */
 }
 
 .question input[type="text"] {
-  width: calc(100% - 20px); /* Adjust width to account for padding */
+  width: calc(100% - 20px);
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  vertical-align: top; /* Align input with the top of the text */
+  vertical-align: top;
 }
 
 
@@ -288,9 +291,9 @@ body {
 
 
 .table-container {
-  max-height: 400px; /* Set maximum height */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 400px;
+  overflow-y: auto;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
 }

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+    <div class="test-list">
+        <h1>Edit Test</h1>
+        <form action="/edit_test/{{ test_id }}" method="post">
+
+            
+            <!-- Question editing section -->
+            <h2>Questions</h2>
+            {% for question in questions %}
+            <div class="question">
+                <label for="question_{{ question.QuestionID }}">Question {{ loop.index }}</label>
+                <input type="text" id="question_{{ question.QuestionID }}" name="question_{{ question.QuestionID }}" placeholder="{{ question.Question }}" value="{{ question.Question }}" required>
+                <input type="checkbox" id="delete_{{ question.QuestionID }}" name="delete_{{ question.QuestionID }}">
+                <label for="delete_{{ question.QuestionID }}">Delete</label>
+            </div>
+            {% endfor %}
+            
+            <!-- Submit button -->
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

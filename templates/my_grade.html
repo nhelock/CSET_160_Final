@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+    <div class="test-list">
+        <h1>Your Grades</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test ID</th>
+                    <th>Grade (0 May Mean Unassigned)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for grade in grades %}
+                <tr>
+                    <td>{{ grade.TestID }}</td>
+                    <td>{{ grade.Grade }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

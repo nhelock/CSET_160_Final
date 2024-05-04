@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+    <div class="test-list">
+        <h1>Add Questions to Test</h1>
+        <form action="/add_questions/{{ test_id}}" method="post">
+            <input type="hidden" name="test_id" value="{{ test_id }}">
+            <div id="questions">
+
+                
+                
+            </div>
+            <button type="button" onclick="addQuestion()">Add Question</button>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+    <script>
+        function addQuestion() {
+            var questionsDiv = document.getElementById('questions');
+            var questionNumber = questionsDiv.children.length + 1;
+
+            var questionInput = document.createElement('input');
+            questionInput.type = 'text';
+            questionInput.name = 'question_' + questionNumber;
+            questionInput.placeholder = 'Question ' + questionNumber;
+
+            questionsDiv.appendChild(questionInput);
+        }
+    </script>
+
+{% endblock %}
